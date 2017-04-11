@@ -1,0 +1,9 @@
+
+1.) db.restaurant.find()
+2.) db.restaurant.find({},{restaurant_id:1,name:1,district:1,cuisine:1,_id:0})
+3.) db.restaurant.find({},{restaurant_id:1,name:1,district:1,zipcode:1,_id:0});
+4.) db.restaurant.find({},{restaurant_id:1,name:1,district:1,'address.zipcode':1,_id:0});
+5.) db.restaurant.find({district:"Bronx"});
+6.) db.restaurant.find({district:"Bronx"}).limit(5);
+7.) db.restaurant.find({district:"Bronx"}).limit(5,10);
+8.) db.restaurant.find({})
