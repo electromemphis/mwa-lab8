@@ -1,0 +1,13 @@
+{
+    "name" : "IOWA Hospital",
+    "category" : "Hospital",
+    "longitude" : 75,
+    "latitude" : -65
+}
+
+{
+    "name" : "Dollar Shop",
+    "category" : "Shop",
+    "longitude" : 45,
+    "latitude" : -55
+}

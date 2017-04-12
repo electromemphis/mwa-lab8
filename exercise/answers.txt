@@ -35,10 +35,9 @@
             "district" : 1,
             "cuisine" : 1
         });
-13.)db.restaurant.find({ 
-            "district": "Bronx", 
-            $or : [{ "cuisine" : "American " },{ "cuisine" : "Chinese" }] 
-        });
+        
+13.)db.restaurant.find({"district": "Bronx", "cuisine": {$in:["American ","Chinese"]}});
+
 14.)db.restaurant.find({$or : [
         {"district":"Staten Island"},
         {"district":"Island"},
