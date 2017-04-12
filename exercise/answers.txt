@@ -60,3 +60,4 @@
 20.)db.restaurant.find().sort({cuisine:1,district:-1});
 21.)db.restaurant.find({"address.street" : {$exists: true}});
 22.)db.restaurant.find({"address.coord" : {$type:1}});
+23.)db.restaurant.find({"name":/^Mad/},{name:1,district:1,"address.coord":1,cuisine:1});
