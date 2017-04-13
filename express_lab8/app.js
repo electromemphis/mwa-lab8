@@ -9,6 +9,9 @@ var lessMiddleware = require('less-middleware');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var addPage = require('./routes/add');
+var updatePage = require('./routes/update');
+var searchPage = require('./routes/search');
+
 
 var app = express();
 
@@ -22,12 +25,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(lessMiddleware(path.join(__dirname, 'public')));
+// app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'css')));
+// app.use(express.static('js'));
+console.log("static url="+path.join(__dirname, 'public'));
+app.use("/public", express.static(__dirname + '/public'));
 
 app.use('/', index);
 app.use('/users', users);
 app.use('/add', addPage);
+app.use('/update', updatePage);
+app.use('/search',searchPage);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

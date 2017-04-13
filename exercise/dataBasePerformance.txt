@@ -1,0 +1,26 @@
+Books
+{
+    isbn,
+    author,
+    keyword
+}
+
+Student
+{
+    sid,
+    fullname,
+    books[{ isbn,
+            borrowed_date,
+            return_date
+        }]
+}
+
+Performance:
+1.)For the above database structure, performance will be increased if we add index
+to isbn field from Books collection and index to sid field for the Student collection.
+
+This can be accomplished by performing below script.
+db.books.createIndex({ isbn: 1});
+db.student.createIndex({sid : 1});
+
+2.) When querying the books or student collections, it will also help if we remove the _id from the resultset.

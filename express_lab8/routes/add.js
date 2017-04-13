@@ -14,7 +14,7 @@ router.get("/",(req,res,next)=>{
 router.post("/",(req,res,next)=>{
 
     MongoClient.connect(dbPath,(err,db)=>{
-        if(err) throw error;
+        if(err) throw err;
 
         console.log("req body"+req.body.name);
         var doc = {
