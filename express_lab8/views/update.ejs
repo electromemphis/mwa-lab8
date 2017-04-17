@@ -17,17 +17,18 @@
             <label > UPDATE <input type="radio" name="action" value="update" checked="checked"> </label>
 
             <br><br>
-            Name: <input type="text" name="name" > <br><br>
-            Category: <input type="text" name="category" > <br><br>
-            longitude: <input type="text" name="longitude" > <br><br>
-            latitude: <input type="text" name="latitude" > <br><br>
+            Name: <input type="text" name="name" value="<%=location.name %>" > <br><br>
+            Category: <input type="text" name="category" value="<%=location.category %>"> <br><br>
+            longitude: <input type="text" name="longitude" value="<%=location.longitude %>"> <br><br>
+            latitude: <input type="text" name="latitude" value="<%=location.latitude %>"> <br><br>
+            <input type="hidden" name="_id" value="<%=location._id %>">
             <input type="submit">
 
 
             <div id="map">
 
                 <fieldset class="gllpLatlonPicker">
-                    <input type="text" class="gllpSearchField">
+                    <input type="text" class="gllpSearchField" value="<">
                     <input type="button" class="gllpSearchButton" value="search">
                     <div class="gllpMap">Google Maps</div>
                     <input type="hidden" class="gllpLatitude" value="20"/>

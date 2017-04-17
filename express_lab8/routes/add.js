@@ -18,12 +18,12 @@ router.post("/",(req,res,next)=>{
 
         console.log("req body"+req.body.name);
         var doc = {
-            "name" : "Parksosur",
-            "category" : "Park",
-            "longitude" : 45,
-            "latitude" : -67
+            "name" : req.body.name,
+            "category" : req.body.category,
+            "longitude" : req.body.longitude,
+            "latitude" : req.body.latitude
         }
-        db.collection("positions").insert(doc,(err,docInserted)=>{
+        db.collection("locations").insert(doc,(err,docInserted)=>{
             if(err) throw error;
             console.log("inserted"+ doc);
             console.log("posted!"+res);

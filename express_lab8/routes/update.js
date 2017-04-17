@@ -15,25 +15,31 @@ router.post("/",(req,res,next)=>{
         if(err) throw err;
         var query = {"name":"Parksosur"};
         var updatedDoc =   {
-                    "name" : "Dollars Shop",
-                    "category" : "Store",
-                    "longitude" : 45,
-                    "latitude" : -55
-                    };
-        
-        // db.collection("positions").update(query,updatedDoc,(err,numUpdated)=>{
-        //     if(err) throw err;
-        //     console.log("updated num="+numUpdated);
-        //     res.end("Updated "+numUpdated);
-        //     return db.close();
-        // });
+                "name" : req.body.name,
+                "category" : req.body.category,
+                "longitude" : req.body.longitude,
+                "latitude" : req.body.latitude
+        };
+        if(req.body.action = "update"){
+            db.collection("locations").update(query,updatedDoc,(err,numUpdated)=>{
+                if(err) throw err;
+                console.log("updated num="+numUpdated);
+                console.log(numUpdated);
+                console.log("============");
+                console.log(updatedDoc);
+                res.end(""+numUpdated);
+                return db.close();
+            });
+        }else{
 
-        db.collection("positions").remove(query,(err,removed)=>{
-            if(err) throw err;
-            console.log("removed="+removed);
-            res.end("Deleted  "+removed);
-            return db.close();
-        });
+            db.collection("positions").remove(query,(err,removed)=>{
+                if(err) throw err;
+                console.log("removed="+removed);
+                res.end("Deleted  "+removed);
+                return db.close();
+            });
+        }
+
 
     });
 
